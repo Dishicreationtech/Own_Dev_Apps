@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id='menu_clinic_root'
+              name= 'Clinic Management'
+              sequence='0'/>
+
+
+    <menuitem id='menu_clinic_master'
+              name= 'Patient Details'
+              parent='menu_clinic_root'
+              sequence='0'/>
+
+    <menuitem id='menu_appointments_master'
+              name= 'Appointments'
+              parent='menu_clinic_root'
+              sequence='20'/>
+</odoo>              

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_checklist_template,access.checklist.template,om_checklist.model_checklist_template,base.group_user,1,1,1,1
+
+access_requirement_template,access.requirement.template,om_checklist.model_requirement_template,base.group_user,1,1,1,1
+
+access_checklist_configuration,access.checklist.configuration,om_checklist.model_checklist_configuration,base.group_user,1,1,1,1

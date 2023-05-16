@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  
+   <record id="view_customer_details_tree" model="ir.ui.view">
+         <field name="name">customer.details.tree</field>
+         <field name="model">customer.details</field>
+         <field name="arch" type="xml">
+            <tree>
+              <field name="name_id"/>  
+              <field name="date"/>
+              <field name="purpose"/>            
+            </tree>
+         </field>
+   </record>
+
+   <record id="view_customer_details_form" model="ir.ui.view">
+         <field name="name">customer.details.form</field>
+         <field name="model">customer.details</field>
+         <field name="arch" type="xml">
+            <form>
+               <header>
+                     <button name="action_allow" string="Allow" class="oe_highlight" type="object" states='draft'/>
+                     <button name="action_notallow" string="Not Allow" class="oe_highlight" type="object" states='verify,cancel'/>
+
+                     <field name="state" widget="statusbar" nolabel='1' statusbar_visible="draft,verify,cancel"/>/>
+               </header> 
+                  <sheet>
+                     <field name='image' widget='image' class="oe_avatar"/>               
+                        <group>
+                           <field name="name_id"/>
+                           <field name="date"/>
+                           <field name="meet"/>
+                           <field name="purpose"/>
+                           <!-- <field name="visitors_count"/> -->
+                           
+                        </group>
+                   
+                        <group>
+                           <field name="email"/>
+                  
+                           <field name="phone_no"/>
+                  
+                           <field name="address"/>
+                        </group> 
+                  </sheet>  
+            </form>
+         </field>
+   </record>
+
+   <record id="action_customer" model="ir.actions.act_window">
+               <field name="name">Visitor Details</field>
+               <field name="type">ir.actions.act_window</field>
+               <field name="res_model">customer.details</field>
+               <field name="view_mode">tree,form</field>
+               <field name="context">{}</field>
+               <field name="help" type='html'>
+                    <p class= 'o_view_nocontent_smiling_face'>
+                       Create your first record!
+                    </p>  
+               </field>
+   </record>
+
+   <menuitem id='menu_custom_root'
+              name= 'Visitors Details'
+              sequence='0'/>
+
+
+   <menuitem id='menu_custom_master'
+             name= 'Details'
+             action= 'action_customer' 
+             parent='menu_custom_root'
+             sequence='20'/>
+
+</odoo> 

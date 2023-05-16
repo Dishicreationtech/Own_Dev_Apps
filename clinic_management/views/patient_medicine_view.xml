@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	 <record id="view_patient_medicin_tree" model="ir.ui.view">
+         <field name="name">patient.medicine.tree</field>
+         <field name="model">patient.medicine</field>
+         <field name="arch" type="xml">
+            <tree>
+              <field name='patient_name_id'/>
+              <field name='medicine'/> 
+            </tree>
+         </field>
+   </record>
+
+	<record id="view_patient_medicine_form" model="ir.ui.view">
+         <field name="name">patient.medicine.form</field>
+         <field name="model">patient.medicine</field>
+         <field name="arch" type="xml">
+            <form>
+               <sheet>
+                  <group>
+                     <group>
+                        <field name='patient_name_id'/>
+                        <field name='medicine'/>
+                     </group>
+                  </group>
+               </sheet>
+            </form>
+         </field>
+    </record>
+
+	<record id="action_patient_medicine" model="ir.actions.act_window">
+               <field name="name">Medicines</field>
+               <field name="type">ir.actions.act_window</field>
+               <field name="res_model">patient.medicine</field>
+               <field name="view_mode">tree,form</field>
+               <field name="context">{}</field>
+               <field name="help" type='html'>
+                    <p class= 'o_view_nocontent_smiling_face'>
+                       Create your first patient!
+                    </p>  
+               </field>
+   </record>
+
+   <menuitem id='menu_medicine_details'
+            name= 'Patients Medicine'
+            action= "action_patient_medicine"
+            parent='menu_appointments_master'
+            sequence='0'/>
+
+</odoo>	

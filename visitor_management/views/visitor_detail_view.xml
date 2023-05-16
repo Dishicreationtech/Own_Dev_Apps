@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="action_open_visitor" model="ir.actions.act_window">
+               <field name="name">Visitor Details</field>
+               <field name="type">ir.actions.act_window</field>
+               <field name="res_model">customer.details</field>
+               <field name="view_mode">tree,form</field>
+               <field name="domain">[('name_id', '=', active_id)]</field>
+               <field name="context">{}</field>
+               <field name="help" type='html'>
+                    <p class= 'o_view_nocontent_smiling_face'>
+                       Create your first record!
+                    </p>  
+               </field>
+    </record>
+
+    <record id="view_partners_form_inherit_visitor" model="ir.ui.view">
+            <field name="name">res_partner.view.form.visitor</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+           
+            <field name="arch" type="xml">
+
+
+            <!-- <xpath expr="//filter[@name='mobile']" position="replace"></xpath> -->
+                <data>
+                    <div name="button_box" position="inside">
+                        <button class="oe_stat_button" type="action"
+                            name="%(visitor_management.action_open_visitor)d"
+                            >
+                            <field  name="visitors_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                </data>
+            </field>
+            <!-- <div name="button_box" position="inside">
+                    <button class="oe_stat_button" type="object" name="action_view_sale_order"
+                        groups="sales_team.group_sale_salesman"
+                        icon="fa-usd">
+                        <field string="Sales" name="sale_order_count" widget="statinfo"/>
+                    </button>
+                </div> -->
+    </record>
+
+
+
+</odoo> 	
